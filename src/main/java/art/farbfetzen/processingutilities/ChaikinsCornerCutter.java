@@ -11,13 +11,13 @@ public class ChaikinsCornerCutter {
 
     public static List<PVector> cut(final List<PVector> corners, final float ratio, final int iterations, final boolean closed) {
         if (corners.size() < 3) {
-            throw new IllegalArgumentException("corners must contain at least 3 PVectors.");
+            throw new IllegalArgumentException("Corners must contain at least 3 PVectors.");
         }
         if (ratio <= 0 || ratio >= 0.5) {
-            throw new IllegalArgumentException("ratio must be > 0 and < 0.5.");
+            throw new IllegalArgumentException("Ratio must be > 0 and < 0.5.");
         }
         if (iterations < 1) {
-            throw new IllegalArgumentException("iterations must be > 0.");
+            throw new IllegalArgumentException("Iterations must be > 0.");
         }
         return closed ? cutClosed(corners, ratio, iterations) : cutOpen(corners, ratio, iterations);
     }
@@ -44,7 +44,7 @@ public class ChaikinsCornerCutter {
 
     private static List<PVector> cutOpen(List<PVector> corners, final float ratio, final int iterations) {
         for (int i = 0; i < iterations; i++) {
-            final List<PVector> newCorners = new ArrayList<>(corners.size() * 2 - 1);
+            final List<PVector> newCorners = new ArrayList<>(corners.size() * 2 - 2);
             newCorners.add(corners.get(0));
             PVector a = corners.get(0);
             PVector b = corners.get(1);
