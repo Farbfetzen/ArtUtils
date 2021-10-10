@@ -19,7 +19,7 @@ class ChaikinsCornerCutterTest {
     void invalidArgumentsShouldThrowExceptions() {
         final List<PVector> tooFewCorners = Arrays.asList(new PVector(1, 2), new PVector(3, 4));
         assertThatIllegalArgumentException().isThrownBy(() -> cut(tooFewCorners, 0.2f, 1, true))
-                .withMessage("Corners must contain at least 3 PVectors.");
+                .withMessage("List must contain at least 3 corners.");
         assertThatIllegalArgumentException().isThrownBy(() -> cut(TEST_SHAPE, 0f, 1, true))
                 .withMessage("Ratio must be > 0 and < 0.5.");
         assertThatIllegalArgumentException().isThrownBy(() -> cut(TEST_SHAPE, 0.5f, 1, true))

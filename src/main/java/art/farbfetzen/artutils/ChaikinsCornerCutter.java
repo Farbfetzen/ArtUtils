@@ -14,7 +14,7 @@ public class ChaikinsCornerCutter {
             final int iterations,
             final boolean closed) {
         if (corners.size() < 3) {
-            throw new IllegalArgumentException("Corners must contain at least 3 PVectors.");
+            throw new IllegalArgumentException("List must contain at least 3 corners.");
         }
         if (ratio <= 0 || ratio >= 0.5) {
             throw new IllegalArgumentException("Ratio must be > 0 and < 0.5.");
