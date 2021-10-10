@@ -9,6 +9,20 @@ import processing.core.PVector;
 @UtilityClass
 public class ChaikinsCornerCutter {
 
+    /**
+     * Cuts the corners of a shape using Chaikin's corner-cutting algorithm.
+     * <p>
+     * Be careful when you have lots of corners and many iterations as each iteration doubles the number of corners
+     * (minus two if not closed). Usually 3 or 4 iterations are enough to produce rounded corners.
+     *
+     * @param corners    The list of corners to be rounded. Must contain at least 3 PVectors.
+     * @param ratio      The amount of linear interpolation between two points. Must be &gt; 0 and &lt; 0.5.
+     * @param iterations Number of times the algorithm is repeated.
+     * @param closed     If true, then the shape is assumed to be closed and new points will be generated between
+     *                   the last and the first corner. Otherwise, The original first and last corners will remain in
+     *                   place.
+     * @return The interpolated list of points.
+     */
     public static List<PVector> cut(final List<PVector> corners,
             final float ratio,
             final int iterations,
