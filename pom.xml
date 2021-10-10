@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>art.farbfetzen</groupId>
-  <artifactId>processing-utilities</artifactId>
+  <artifactId>artutils</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>processing-utilities</name>
-  <url>https://github.com/Farbfetzen/processing-utilities</url>
+  <name>ArtUtils</name>
+  <url>https://github.com/Farbfetzen/ArtUtils</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
