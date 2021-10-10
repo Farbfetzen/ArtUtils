@@ -9,7 +9,10 @@ import processing.core.PVector;
 @UtilityClass
 public class ChaikinsCornerCutter {
 
-    public static List<PVector> cut(final List<PVector> corners, final float ratio, final int iterations, final boolean closed) {
+    public static List<PVector> cut(final List<PVector> corners,
+            final float ratio,
+            final int iterations,
+            final boolean closed) {
         if (corners.size() < 3) {
             throw new IllegalArgumentException("Corners must contain at least 3 PVectors.");
         }

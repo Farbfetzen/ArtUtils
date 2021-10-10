@@ -12,14 +12,11 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 
 class ChaikinsCornerCutterTest {
 
-    private static final List<PVector> TEST_SHAPE = Arrays.asList(
-            new PVector(0, 0),
-            new PVector(16, -16),
-            new PVector(32, 16)
-    );
+    private static final List<PVector> TEST_SHAPE =
+            Arrays.asList(new PVector(0, 0), new PVector(16, -16), new PVector(32, 16));
 
     @Test
-    void testInvalidArguments() {
+    void invalidArgumentsShouldThrowExceptions() {
         final List<PVector> tooFewCorners = Arrays.asList(new PVector(1, 2), new PVector(3, 4));
         assertThatIllegalArgumentException().isThrownBy(() -> cut(tooFewCorners, 0.2f, 1, true))
                 .withMessage("Corners must contain at least 3 PVectors.");
@@ -32,8 +29,8 @@ class ChaikinsCornerCutterTest {
     }
 
     @Test
-    void testCutClosed() {
-        final List<PVector> expectedAfterOneIteration = Arrays.asList(
+    void cutClosed1Iteration() {
+        final List<PVector> expected = Arrays.asList(
                 new PVector(4, -4),
                 new PVector(12, -12),
                 new PVector(20, -8),
@@ -41,8 +38,12 @@ class ChaikinsCornerCutterTest {
                 new PVector(24, 12),
                 new PVector(8, 4)
         );
-        assertThat(cut(TEST_SHAPE, 0.25f, 1, true)).hasSize(6).isEqualTo(expectedAfterOneIteration);
-        final List<PVector> expectedAfterTwoIterations = Arrays.asList(
+        assertThat(cut(TEST_SHAPE, 0.25f, 1, true)).hasSize(6).isEqualTo(expected);
+    }
+
+    @Test
+    void cutClosed2Iterations() {
+        final List<PVector> expected = Arrays.asList(
                 new PVector(6, -6),
                 new PVector(10, -10),
                 new PVector(14, -11),
@@ -56,19 +57,19 @@ class ChaikinsCornerCutterTest {
                 new PVector(7, 2),
                 new PVector(5, -2)
         );
-        assertThat(cut(TEST_SHAPE, 0.25f, 2, true)).hasSize(12).isEqualTo(expectedAfterTwoIterations);
+        assertThat(cut(TEST_SHAPE, 0.25f, 2, true)).hasSize(12).isEqualTo(expected);
     }
 
     @Test
-    void testCutOpen() {
-        final List<PVector> expectedAfterOneIteration = Arrays.asList(
-                new PVector(0, 0),
-                new PVector(12, -12),
-                new PVector(20, -8),
-                new PVector(32, 16)
-        );
-        assertThat(cut(TEST_SHAPE, 0.25f, 1, false)).hasSize(4).isEqualTo(expectedAfterOneIteration);
-        final List<PVector> expectedAfterTwoIterations = Arrays.asList(
+    void cutOpen1Iteration() {
+        final List<PVector> expected =
+                Arrays.asList(new PVector(0, 0), new PVector(12, -12), new PVector(20, -8), new PVector(32, 16));
+        assertThat(cut(TEST_SHAPE, 0.25f, 1, false)).hasSize(4).isEqualTo(expected);
+    }
+
+    @Test
+    void cutOpen2Iterations() {
+        final List<PVector> expected = Arrays.asList(
                 new PVector(0, 0),
                 new PVector(9, -9),
                 new PVector(14, -11),
@@ -76,7 +77,7 @@ class ChaikinsCornerCutterTest {
                 new PVector(23, -2),
                 new PVector(32, 16)
         );
-        assertThat(cut(TEST_SHAPE, 0.25f, 2, false)).hasSize(6).isEqualTo(expectedAfterTwoIterations);
+        assertThat(cut(TEST_SHAPE, 0.25f, 2, false)).hasSize(6).isEqualTo(expected);
     }
 
 }
