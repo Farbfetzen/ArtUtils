@@ -1,5 +1,5 @@
-# Processing-Utilities
-A library with miscellaneous utilities for [Processing](https://processing.org) sketches.
+# ArtUtils
+A library containing miscellaneous utilities for creating art with [Processing](https://processing.org).
 
 ## Changelog
 See file [CHANGELOG.md](CHANGELOG.md).
@@ -10,7 +10,7 @@ See [this](http://maven.apache.org/general.html#importing-jars) command for help
 In my case it was 
 ```
 mvn install:install-file \
-    -Dfile=/home/sebastian/Processing/processing-4.0b1/core/library/core.jar \
+    -Dfile=<path to core.jar> \
     -DgroupId=org.processing \
     -DartifactId=core \
     -Dversion=4.0b1 \
