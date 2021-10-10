@@ -38,7 +38,7 @@ class ChaikinsCornerCutterTest {
                 new PVector(24, 12),
                 new PVector(8, 4)
         );
-        assertThat(cut(TEST_SHAPE, 0.25f, 1, true)).hasSize(6).isEqualTo(expected);
+        assertThat(cut(TEST_SHAPE, 0.25f, 1, true)).isEqualTo(expected);
     }
 
     @Test
@@ -57,14 +57,14 @@ class ChaikinsCornerCutterTest {
                 new PVector(7, 2),
                 new PVector(5, -2)
         );
-        assertThat(cut(TEST_SHAPE, 0.25f, 2, true)).hasSize(12).isEqualTo(expected);
+        assertThat(cut(TEST_SHAPE, 0.25f, 2, true)).isEqualTo(expected);
     }
 
     @Test
     void cutOpen1Iteration() {
         final List<PVector> expected =
                 Arrays.asList(new PVector(0, 0), new PVector(12, -12), new PVector(20, -8), new PVector(32, 16));
-        assertThat(cut(TEST_SHAPE, 0.25f, 1, false)).hasSize(4).isEqualTo(expected);
+        assertThat(cut(TEST_SHAPE, 0.25f, 1, false)).isEqualTo(expected);
     }
 
     @Test
@@ -77,7 +77,7 @@ class ChaikinsCornerCutterTest {
                 new PVector(23, -2),
                 new PVector(32, 16)
         );
-        assertThat(cut(TEST_SHAPE, 0.25f, 2, false)).hasSize(6).isEqualTo(expected);
+        assertThat(cut(TEST_SHAPE, 0.25f, 2, false)).isEqualTo(expected);
     }
 
 }
