@@ -1,0 +1,32 @@
+1. Create a super triangle containing all points
+2. Insert points in random order.
+3. For each point that is inserted: find the triangle containing that point and divide
+that triangle into three smaller triangles with that point as one of the vertices.
+4. When all points have been inserted remove the super triangle and all triangles sharing its vertices.
+
+How to find the triangle containing a point:
+Don't iterate over all triangles because that is slow. Instead, start with the super triangle and check which
+child triangle contains that point. Then check the children of that one etc. Should be much faster.
+
+Be aware of what happens if points land on edges or if points coincide.
+
+Restriction: needs at least three points.
+
+
+Goals:
+- fast
+- works with any range of coordinates as long as the super triangle fits into the range of doubles
+- users can get the list of triangles or list of edges from the result
+
+
+necessary classes:
+[ ] Vector2D
+[ ] triangle (container for 3 Vector2D with methods to check if point is inside)
+[ ] tree structure for looking up which triangles contain a point
+[ ] triangulator for running the main algorithm
+[ ] container for the result
+
+
+References:
+https://github.com/jdiemke/delaunay-triangulator
+http://www.uni-forst.gwdg.de/~wkurth/cb/html/xlpr/xl1_delaun.pdf
