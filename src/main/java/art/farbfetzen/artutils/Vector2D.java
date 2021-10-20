@@ -1,11 +1,15 @@
 package art.farbfetzen.artutils;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import processing.core.PVector;
 
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
 public class Vector2D {
 
     private double x;
@@ -38,6 +42,11 @@ public class Vector2D {
     public void update(final PVector other) {
         x = other.x;
         y = other.y;
+    }
+
+    public void update(final double newX, final double newY) {
+        x = newX;
+        y = newY;
     }
 
     public float getXf() {
