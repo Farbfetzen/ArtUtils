@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class TriangleTest {
 
-    private static final Triangle triangle = new Triangle(new Vector2D(-2, 0), new Vector2D(0, -2), new Vector2D(2, 2));
+    private static final Triangle triangle = new Triangle(new Vector2D(-1, 0), new Vector2D(0, -1), new Vector2D(1, 1));
 
     @Test
     void shouldContainPoints() {
@@ -17,8 +17,8 @@ class TriangleTest {
 
     @Test
     void shouldNotContainPoints() {
-        final Vector2D outside = new Vector2D(3, 4);
-        assertThat(triangle.containsPoint(outside)).isFalse();
+        assertThat(triangle.containsPoint(new Vector2D(3, 4))).isFalse();
+        assertThat(triangle.containsPoint(new Vector2D(-2, -2))).isFalse();
     }
 
     @Test
@@ -30,15 +30,11 @@ class TriangleTest {
 
     @Test
     void shouldNotContainPointsOnEdges() {
-        // FIXME: What's wrong here? Even (-2, -2) should not be contained!
-        //  But a triangle that has no negative corners works? Maybe it's the orientation?
-        //  Or I made a typo when copying the equation?
-
-        final Vector2D onEdgeAB = new Vector2D(-1, -1);
+        final Vector2D onEdgeAB = Vector2D.lerp(triangle.getA(), triangle.getB(), 0.25);
         assertThat(triangle.containsPoint(onEdgeAB)).isFalse();
-        final Vector2D onEdgeAC = new Vector2D(0, 1);
+        final Vector2D onEdgeAC = Vector2D.lerp(triangle.getA(), triangle.getC(), 0.5);
         assertThat(triangle.containsPoint(onEdgeAC)).isFalse();
-        final Vector2D onEdgeBC = new Vector2D(1, 0);
+        final Vector2D onEdgeBC = Vector2D.lerp(triangle.getB(), triangle.getC(), 0.75);
         assertThat(triangle.containsPoint(onEdgeBC)).isFalse();
     }
 
