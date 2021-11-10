@@ -10,31 +10,31 @@ import processing.core.PVector;
 @Getter
 @Setter
 @ToString
-public class Vector2D {
+public class Vector2 {
 
     private double x;
     private double y;
 
-    public Vector2D() {
+    public Vector2() {
         x = 0.0;
         y = 0.0;
     }
 
-    public Vector2D(final Vector2D other) {
+    public Vector2(final Vector2 other) {
         x = other.x;
         y = other.y;
     }
 
-    public Vector2D(final PVector other) {
+    public Vector2(final PVector other) {
         x = other.x;
         y = other.y;
     }
 
-    public Vector2D copy() {
-        return new Vector2D(x, y);
+    public Vector2 copy() {
+        return new Vector2(x, y);
     }
 
-    public void update(final Vector2D other) {
+    public void update(final Vector2 other) {
         x = other.x;
         y = other.y;
     }
@@ -66,16 +66,16 @@ public class Vector2D {
         y += scalar;
     }
 
-    public void add(final Vector2D other) {
+    public void add(final Vector2 other) {
         x += other.x;
         y += other.y;
     }
 
-    public static Vector2D add(final Vector2D a, final Vector2D b) {
-        return new Vector2D(a.x + b.x, a.y + b.y);
+    public static Vector2 add(final Vector2 a, final Vector2 b) {
+        return new Vector2(a.x + b.x, a.y + b.y);
     }
 
-    public static void add(final Vector2D a, final Vector2D b, final Vector2D target) {
+    public static void add(final Vector2 a, final Vector2 b, final Vector2 target) {
         target.x = a.x + b.x;
         target.y = a.y + b.y;
     }
@@ -85,16 +85,16 @@ public class Vector2D {
         y -= scalar;
     }
 
-    public void sub(final Vector2D other) {
+    public void sub(final Vector2 other) {
         x -= other.x;
         y -= other.y;
     }
 
-    public static Vector2D sub(final Vector2D a, final Vector2D b) {
-        return new Vector2D(a.x - b.x, a.y - b.y);
+    public static Vector2 sub(final Vector2 a, final Vector2 b) {
+        return new Vector2(a.x - b.x, a.y - b.y);
     }
 
-    public static void sub(final Vector2D a, final Vector2D b, final Vector2D target) {
+    public static void sub(final Vector2 a, final Vector2 b, final Vector2 target) {
         target.x = a.x - b.x;
         target.y = a.y - b.y;
     }
@@ -104,16 +104,16 @@ public class Vector2D {
         y *= scalar;
     }
 
-    public void mul(final Vector2D other) {
+    public void mul(final Vector2 other) {
         x *= other.x;
         y *= other.y;
     }
 
-    public static Vector2D mul(final Vector2D a, final Vector2D b) {
-        return new Vector2D(a.x * b.x, a.y * b.y);
+    public static Vector2 mul(final Vector2 a, final Vector2 b) {
+        return new Vector2(a.x * b.x, a.y * b.y);
     }
 
-    public static void mul(final Vector2D a, final Vector2D b, final Vector2D target) {
+    public static void mul(final Vector2 a, final Vector2 b, final Vector2 target) {
         target.x = a.x * b.x;
         target.y = a.y * b.y;
     }
@@ -123,16 +123,16 @@ public class Vector2D {
         y /= scalar;
     }
 
-    public void div(final Vector2D other) {
+    public void div(final Vector2 other) {
         x /= other.x;
         y /= other.y;
     }
 
-    public static Vector2D div(final Vector2D a, final Vector2D b) {
-        return new Vector2D(a.x / b.x, a.y / b.y);
+    public static Vector2 div(final Vector2 a, final Vector2 b) {
+        return new Vector2(a.x / b.x, a.y / b.y);
     }
 
-    public static void div(final Vector2D a, final Vector2D b, final Vector2D target) {
+    public static void div(final Vector2 a, final Vector2 b, final Vector2 target) {
         target.x = a.x / b.x;
         target.y = a.y / b.y;
     }
@@ -141,17 +141,17 @@ public class Vector2D {
      * @param other the other vector.
      * @return The determinant of both vectors.
      */
-    public double det(final Vector2D other) {
+    public double det(final Vector2 other) {
         return x * other.y - other.x * y;
     }
 
-    public void lerp(final Vector2D other, final double t) {
+    public void lerp(final Vector2 other, final double t) {
         x = (1 - t) * x + t * other.x;
         y = (1 - t) * y + t * other.y;
     }
 
-    public static Vector2D lerp(final Vector2D a, final Vector2D b, final double t) {
-        return new Vector2D(
+    public static Vector2 lerp(final Vector2 a, final Vector2 b, final double t) {
+        return new Vector2(
                 (1 - t) * a.x + t * b.x,
                 (1 - t) * a.y + t * b.y
         );

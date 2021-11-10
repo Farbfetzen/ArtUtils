@@ -2,7 +2,7 @@ package art.farbfetzen.artutils.delaunay;
 
 import org.junit.jupiter.api.Test;
 
-import art.farbfetzen.artutils.Vector2D;
+import art.farbfetzen.artutils.Vector2;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -10,12 +10,12 @@ class TriangleTreeTest {
 
     @Test
     void insertAndExtract() {
-        final Vector2D a = new Vector2D(-1, -1);
-        final Vector2D b = new Vector2D(0, 8);
-        final Vector2D c = new Vector2D(11, 0);
-        final Vector2D d = new Vector2D(4, 1);
-        final Vector2D e = new Vector2D(1, 2.5);
-        final Vector2D f = new Vector2D(1.5, 1);
+        final Vector2 a = new Vector2(-1, -1);
+        final Vector2 b = new Vector2(0, 8);
+        final Vector2 c = new Vector2(11, 0);
+        final Vector2 d = new Vector2(4, 1);
+        final Vector2 e = new Vector2(1, 2.5);
+        final Vector2 f = new Vector2(1.5, 1);
 
         final TriangleTree tree = new TriangleTree(new Triangle(a, b, c));
 
@@ -23,7 +23,7 @@ class TriangleTreeTest {
         assertThat(tree.insert(e)).isTrue();
         assertThat(tree.insert(f)).isTrue();
 
-        assertThat(tree.insert(new Vector2D(3, -3))).isFalse();
+        assertThat(tree.insert(new Vector2(3, -3))).isFalse();
 
         assertThat(tree.getLeafNodes()).hasSize(7).containsExactlyInAnyOrder(
                 new Triangle(b, c, d),

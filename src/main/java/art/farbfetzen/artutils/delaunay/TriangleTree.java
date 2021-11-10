@@ -6,7 +6,7 @@ import java.util.List;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-import art.farbfetzen.artutils.Vector2D;
+import art.farbfetzen.artutils.Vector2;
 
 /**
  * Like a QuadTree but for triangles.
@@ -22,7 +22,7 @@ class TriangleTree {
         private TriangleNode child2;
         private TriangleNode child3;
 
-        boolean insert(final Vector2D point) {
+        boolean insert(final Vector2 point) {
             if (self.containsPoint(point)) {
                 if (child1 == null) {
                     child1 = new TriangleNode(new Triangle(self.getA(), self.getB(), point), this);
@@ -54,7 +54,7 @@ class TriangleTree {
         this.root = new TriangleNode(root, null);
     }
 
-    boolean insert(final Vector2D point) {
+    boolean insert(final Vector2 point) {
         return root.insert(point);
     }
 

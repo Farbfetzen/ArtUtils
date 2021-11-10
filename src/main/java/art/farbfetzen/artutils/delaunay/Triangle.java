@@ -4,28 +4,28 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
-import art.farbfetzen.artutils.Vector2D;
+import art.farbfetzen.artutils.Vector2;
 
 @AllArgsConstructor
 @Getter
 @EqualsAndHashCode
 public class Triangle {
 
-    private final Vector2D a;
-    private final Vector2D b;
-    private final Vector2D c;
+    private final Vector2 a;
+    private final Vector2 b;
+    private final Vector2 c;
 
     /**
      * Check if a point lies inside the triangle.
      */
-    boolean containsPoint(final Vector2D p) {
+    boolean containsPoint(final Vector2 p) {
         // TODO: Implement the barycentric technique which should be faster.
-        final double abp = Vector2D.sub(b, a).det(Vector2D.sub(p, a));
-        final double bcp = Vector2D.sub(c, b).det(Vector2D.sub(p, b));
+        final double abp = Vector2.sub(b, a).det(Vector2.sub(p, a));
+        final double bcp = Vector2.sub(c, b).det(Vector2.sub(p, b));
         if (!sameSign(abp, bcp)) {
             return false;
         }
-        final double acp = Vector2D.sub(a, c).det(Vector2D.sub(p, c));
+        final double acp = Vector2.sub(a, c).det(Vector2.sub(p, c));
         return sameSign(abp, acp);
     }
 
