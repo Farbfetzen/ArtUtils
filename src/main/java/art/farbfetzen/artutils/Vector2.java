@@ -1,15 +1,11 @@
 package art.farbfetzen.artutils;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 import processing.core.PVector;
 
 @AllArgsConstructor
-@Getter
-@Setter
-@ToString
+@Data
 public class Vector2 {
 
     private double x;
