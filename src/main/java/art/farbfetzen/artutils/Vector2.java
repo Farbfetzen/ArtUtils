@@ -16,33 +16,16 @@ public class Vector2 {
         y = 0.0;
     }
 
-    public Vector2(final Vector2 other) {
-        x = other.x;
-        y = other.y;
-    }
-
-    public Vector2(final PVector other) {
-        x = other.x;
-        y = other.y;
-    }
-
     public Vector2 copy() {
         return new Vector2(x, y);
     }
 
-    public void update(final Vector2 other) {
-        x = other.x;
-        y = other.y;
+    public static Vector2 fromPVector(final PVector pVector) {
+        return new Vector2(pVector.x, pVector.y);
     }
 
-    public void update(final PVector other) {
-        x = other.x;
-        y = other.y;
-    }
-
-    public void update(final double newX, final double newY) {
-        x = newX;
-        y = newY;
+    public PVector toPVector() {
+        return new PVector(getXf(), getYf());
     }
 
     public float getXf() {
@@ -53,18 +36,31 @@ public class Vector2 {
         return (float) y;
     }
 
-    public PVector toPVector() {
-        return new PVector(getXf(), getYf());
+    public void update(final Vector2 other) {
+        x = other.x;
+        y = other.y;
     }
 
-    public void add(final double scalar) {
+    public void update(final PVector pVector) {
+        x = pVector.x;
+        y = pVector.y;
+    }
+
+    public void update(final double newX, final double newY) {
+        x = newX;
+        y = newY;
+    }
+
+    public Vector2 add(final double scalar) {
         x += scalar;
         y += scalar;
+        return this;
     }
 
-    public void add(final Vector2 other) {
+    public Vector2 add(final Vector2 other) {
         x += other.x;
         y += other.y;
+        return this;
     }
 
     public static Vector2 add(final Vector2 a, final Vector2 b) {
@@ -76,14 +72,16 @@ public class Vector2 {
         target.y = a.y + b.y;
     }
 
-    public void sub(final double scalar) {
+    public Vector2 sub(final double scalar) {
         x -= scalar;
         y -= scalar;
+        return this;
     }
 
-    public void sub(final Vector2 other) {
+    public Vector2 sub(final Vector2 other) {
         x -= other.x;
         y -= other.y;
+        return this;
     }
 
     public static Vector2 sub(final Vector2 a, final Vector2 b) {
@@ -95,14 +93,16 @@ public class Vector2 {
         target.y = a.y - b.y;
     }
 
-    public void mul(final double scalar) {
+    public Vector2 mul(final double scalar) {
         x *= scalar;
         y *= scalar;
+        return this;
     }
 
-    public void mul(final Vector2 other) {
+    public Vector2 mul(final Vector2 other) {
         x *= other.x;
         y *= other.y;
+        return this;
     }
 
     public static Vector2 mul(final Vector2 a, final Vector2 b) {
@@ -114,14 +114,16 @@ public class Vector2 {
         target.y = a.y * b.y;
     }
 
-    public void div(final double scalar) {
+    public Vector2 div(final double scalar) {
         x /= scalar;
         y /= scalar;
+        return this;
     }
 
-    public void div(final Vector2 other) {
+    public Vector2 div(final Vector2 other) {
         x /= other.x;
         y /= other.y;
+        return this;
     }
 
     public static Vector2 div(final Vector2 a, final Vector2 b) {
