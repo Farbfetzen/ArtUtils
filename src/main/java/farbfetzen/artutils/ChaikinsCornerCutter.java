@@ -1,4 +1,4 @@
-package de.farbfetzen.artutils;
+package farbfetzen.artutils;
 
 import java.util.ArrayList;
 import java.util.List;

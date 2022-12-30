@@ -1,4 +1,4 @@
-package de.farbfetzen.artutils;
+package farbfetzen.artutils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import processing.core.PVector;
 
-import static de.farbfetzen.artutils.ChaikinsCornerCutter.cut;
+import static farbfetzen.artutils.ChaikinsCornerCutter.cut;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
